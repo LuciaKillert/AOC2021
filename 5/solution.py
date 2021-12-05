@@ -2,18 +2,21 @@ import sys
 with open(sys.argv[1], "r") as f:
     arr = f.readlines()
 
+#parse the lines into an array of [x1,y1,x2,y2]
 coors = []
 for a in arr:
     x, y = a.split(" -> ")
     coor = x.split(",") + y.split(",")
     coors.append(list(map(lambda x: int(x),coor)))
 
+#find the size of the 2d array
 maxi = 0
 for c in coors:
     if max(c) > maxi:
         maxi = max(c)
 
 def solve(part2):
+    #create the array
     field = [[0 for x in range(0,maxi+1)] for x in range(0,maxi+1)]
 
     for c in coors:
