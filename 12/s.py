@@ -44,7 +44,6 @@ def find2(key, visited):
     visit = deepcopy(visited)
     if key == "end":
         visit.append("end")
-        #print(visit)
         return 1
     if key.islower():
         visit.append(key)
@@ -62,7 +61,6 @@ def find2(key, visited):
     if len(nodes) == 0:
         return 0
     if (key == "dc" or key == "kj") and visit.count("dc") == 2:
-        print(key, nodes, visit, alreadyDONE)
     for node in nodes:
         if node != "start":
             count += find2(node, visit)
